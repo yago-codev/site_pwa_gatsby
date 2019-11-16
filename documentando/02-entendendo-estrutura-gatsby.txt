@@ -1,0 +1,46 @@
+01) ARQUIVO PRINCIPAL DO GATSBY:
+
+    gatsby-config.js
+
+    Esse é o arquivo responsável por realizar toda a 
+    configuração do Gatsby relacionado aos plugins e 
+    a outros dados que passarmos para dentro da aplicação. 
+
+    Dentro do objeto "siteMetaData" nós teremos 
+    algumas informações previamente definidas quando startamos o servidor, 
+    tais como um título, uma descrição, nome do author. 
+    Além disso, perceberemos alguns plugins que já vem por default.
+
+    Toda vez que instalarmos novos plugins, 
+    precisaremos configurar-los no arquivo gatsby-config.js
+
+02) GATSBY-BROWSER.JS
+
+    É nesse arquivo que iremos passar toda e qualquer variável
+    ou biblioteca que formos usar na parte do frontend.
+    Por exemplo, se quisermos trabalhar com alguma biblioteca de modal ou 
+    alguma biblioteca de lazy-loading...
+
+    Ou seja, qualquer biblioteca que for utilizada no frontend e 
+    que precisa ser chamada com um import em arquivos externos serão 
+    declaradas no gatsby-config.js
+
+03) GATSBY-NODE.JS
+
+    Nesse arquivo nós iremos trabalhar com a API do Gatsby. 
+
+    Por exemplo, 
+    os posts que serão criados vão ser determinados aqui.
+
+04) GATSBY-SSR.JS
+
+    Serve para trabalhar com server-side-rendering para 
+    caso seja preciso utilizar algo que seja renderizado do lado do servidor. 
+
+    Iremos excluir esse arquivo porque não iremos trabalhar com isso no projeto. 
+
+05) PASTA PUBLIC:
+
+    É nessa pasta que os arquivos estáticos serão gerados.
+
+

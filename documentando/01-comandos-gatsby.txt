@@ -1,0 +1,36 @@
+01) INSTALANDO O GATSBY GLOBALMENTE NO DEVICE:
+    npm install -g gatsby-cli
+
+02) INICIANDO PROJETO COM GATSBY:
+    gatsby new nome-do-PROJETO
+
+03) COMANDOS IMPORTANTES DO GATSBY:
+
+    gatsby develop
+    - inicia um servidor e ficará assistindo as mudanças.
+
+    gatsby build 
+    - comando responsável por gerar os arquivos estáticos.
+
+    gatsby serve 
+    - é um comando intermediário ao develop/build. 
+      o gatsby serve vai gerar um servidor a partir dos 
+      arquivos estáticos criados a partir do build. 
+      ele não possui o recurso de monitoramento de arquivos, 
+      mas ele será muito útil para verificar bugs que 
+      possam ter aparecido no build dos arquivos estáticos. 
+
+    gatsby clean 
+    - serve para para apagar os assets e o cache que o gatsby gera. 
+      em alguns momentos perceberemos que algumas mudanças não serão 
+      refletidas. nesse caso a modificação poderá não ter acontecido devido 
+      ao cache gerado pelo gatsby, então o clean é um recurso extremamente útil. 
+      após ter limpado os assets e o cache, basta rodar o gatsby build ou o gatsby develop 
+      para gerar os arquivos novamente.
+
+04) INICIANDO SERVIDOR PARA O PROJETO:
+
+    gatsby develop 
+
+    - o servidor é gerado na porta 8000
+
