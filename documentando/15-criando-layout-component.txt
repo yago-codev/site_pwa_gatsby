@@ -1,0 +1,57 @@
+01) A PRIMEIRA COISA A SER FEITA PARA UTILIZAR UM LAYOUT COMPONENT ´E
+    CRIAR UMA CONSTANTE PARA O COMPONENTE QUE SERA ESTILIZADO, 
+    SEGUIDO POR `STYLED.TAGESTILIZADA`
+
+    Por exemplo:
+
+    const Title = styled.h1`
+      font-size: 1.5em;
+      text-align: center;
+    `
+
+    ...
+
+    Depois de estilizado,
+    basta chamar-lo como um componente normal:
+
+    <Title/>
+
+02) INDO ATE O ARQUIVO LAYOUT, 
+    QUE ´E O ARQUIVO RESPONSAVEL POR ENCAPSULAR TODO LAYOUT,
+    TODAS AS PAGINAS DENTRO DELE. 
+
+    ONDE VAMOS UTILIZAR CERTOS COMPONENTES QUE SAO COMUNS ENTRE
+    TODAS AS PAGINAS, COMO O SIDEBAR...
+
+    NO MOMENTO O ARQUIVO LAYOUT.JS ESTA SOLTO, 
+    ENTAO VAMOS CRIAR UMA PASTA PRA JOGAR ELE DENTRO.
+
+    ASSIM QUE O ARQUIVO ESTIVER DENTRO DA PASTA, 
+    VAMOS RENOMEAR-LO PARA INDEX.JS
+
+03) AGORA IREMOS ATE OS ARQUIVOS QUE CHAMAM O 
+    ARQUIVO DE LAYOUT, ALTERANDO OS IMPORTS...
+
+04) Tendo alterado o nome da pasta dos imports para Layout, 
+    iremos partir pra estilização do componente:
+
+    A primeira coisa a ser feita é importar o styled do styled-COMPONENTES
+
+    import styled from 'styled-components'
+
+    Agora criaremos os componentes com estilo. 
+
+    const LayoutWrapper = styled.section`
+      display: flex;
+    `
+
+    const LayoutMain = styled.main`
+      width: 100%
+      min-height: 100vh;
+      padding: 0 3.75rem 0 20rem;
+      background: #16202C;
+
+      Tendo criado os componentes com estilo, 
+      basta inserir-los na renderização:
+
+      

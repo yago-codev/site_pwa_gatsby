@@ -1,0 +1,65 @@
+01) Continuando com a estilização dos componentes, 
+    agora iremos estilizar o Avatar, que é a fotinho do nosso perfil. 
+
+02) Dentro da pasta Avatar iremos criar um arquivo styled.js
+
+03) Agora vamos importar o styled-components
+
+    import styled from 'styled-components'
+
+04) Agora já iremos exportar a variável que criaremos para 
+    gerar a estilização para o componente:
+
+    export const AvatarWrapper
+
+05) Como iremos estilizar um componente que está sendo importado através de um módulo, 
+    tendo em vista que utilizamos o gatsby-image para podermos trabalhar com imagens, 
+    precisaremos importar o gatsby-image
+
+    import Img from 'gatsby-image'
+
+06) Como estilizaremos esse Img?
+    Diferente da declaração de estilização de components JSX comuns, 
+    tais como styled.section, styled.h1, styled.main, 
+    iremos utilizar a função styled(), 
+    passando o componente Img como parâmetro,
+    seguido pelo "template literal", 
+    e dentro do "template literal" nós iremos passar as props e valores da estilização:
+
+    export const AvatarWrapper = styled(Img)`
+      estilos aqui...
+    `
+
+07) Estilização pronta:
+
+    import styled from 'styled-components'
+    import Img from 'gatsby-image'
+
+    export const AvatarWrapper = styled(Img)`
+      width: 3.75rem;
+      height: 3.75rem;
+      border-radius: 50%;
+      margin: auto;
+    `
+
+08) Agora dentro do arquivo index.js da pasta Avatar, 
+    iremos apagar a importação da tag/componente Img do 'gatsby-image'
+
+    Agora importaremos o componente de estilização (styled.js):
+
+    import * as S from './styled'
+
+09) Agora precisamos aplicar esse componente de estilo ao nosso compoente Img:
+
+    Antes:
+    return <S.Img fixed={avatarImage.childImageSharp.fixed} />
+
+    Agora:
+    return <S.AvatarWrapper fixed={avatarImage.childImageSharp.fixed} />
+
+    Explicando:
+    removemos o Img e aplicamos o AvatarWrapper porque o AvatarWrapper é 
+    a nossa constante/componente que já realiza a importação do Img em seu próprio arquivo, 
+    portanto basta substituir o Img pelo componente AvatarWrapper
+
+    

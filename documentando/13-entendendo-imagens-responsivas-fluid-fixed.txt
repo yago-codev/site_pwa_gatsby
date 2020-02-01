@@ -1,0 +1,26 @@
+01) No Gatsby-image existem 2 tipos de imagens responsivas:
+
+    - Fixed
+    - Fluid
+
+    Anteriormente haviamos declarado a imagem do avatar como fixed porque 
+    sabiamos seu width e seu height. 
+
+    Já no caso do fluid, 
+    a imagem se comportará de forma fluida, 
+    ou seja, ela vai ter o seu tamanho baseado no tamanho do 
+    container no qual foi inserida, 
+    podendo aumentar/dimuir de tamanho.
+
+02) Como usar fixed ou fluid?
+
+    Basta que modifiquemos o atributo do html que estará no return para fixed ou fluid. 
+
+    Além disso, 
+    dentro da query, mais espeficicamente dentro do objeto do childImageSharpe, 
+    iremos utilizar fixed ou fluid. 
+
+    Uma coisa que irá mudar no fluir,
+    é que ao declararmos as dimensões da imagem, 
+    utilizaremos a propriedade maxwidth e maxheight, 
+    já que o seu tamanho será fluido.

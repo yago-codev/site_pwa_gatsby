@@ -1,0 +1,39 @@
+01) os plugins e dependencias utilizadas pelo 
+    gatsby-image são o gatsby-plugin-sharp e o gatbsy-transformer-sharp
+
+    esses plugins já vem por default junto com a 
+    instalação do gatsby, 
+    mas se por algum motivo não estiverem presentes no package-json, 
+    poderemos instalar-los manualmente com o yarn. 
+
+    além desses 2 plugins, 
+    precisaremos do gatsby-source-filesystem para trabalharmos/manipularmos arquivos. 
+
+02) CONFIGURANDO GATSBY-IMAGE:
+
+    A configuração será feita no arquivo gatsby-config.js,
+    onde iremos inserir os seguintes valores detro do array plugins para 
+    configurar os 3 plugins utilizados para trabalhar com o gatsby-image:
+
+    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+
+03) Caso quisermos trabalhar com PDF`s por exemplo, 
+    poderemos apenas replicar o objeto de config do gatsby-source-filesystem:
+
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pdfs`,
+        path: `${__dirname}/src/pdfs`,
+      },
+    },

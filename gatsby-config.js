@@ -1,10 +1,12 @@
 module.exports = {
   siteMetadata: {
     title: `Blog PWA com Gatsby`,
+    position: `Frontend Developer`,
     description: `Estudo de Progressive Web Application desenvolvida com Gatsby.`,
     author: `@yagomilano`,
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,

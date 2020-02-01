@@ -1,0 +1,64 @@
+01) No componente Layout nós havíamos declarado o CSS dentro do 
+    arquivo index.js. 
+    Na prática, isso irá deixar o arquivo extenso, desorganizado e confuso, 
+    portanto iremos separar o estilo em um arquivo próprio. 
+
+    Ou seja, separaremos a parte do estilo da parte lógica do componente. 
+
+02) Dentro da pasta Layout, iremos criar um arquivo chamado styled.js
+
+03) Agora iremos copiar e colar as constantes LayoutWrapper e LayoutMain, 
+    já que essas são as constantes que contém o styled components. 
+
+    Após termos copiado as constantes, iremos colar-las dentro do arquivo recém criado, 
+    ou seja, o arquivo styled.js
+
+04) Após termos colado as constantes, 
+    precisaremos importar o módulo styled components pra que as constantes funcionem:
+
+    import styled from 'styled-components'
+
+05) Agora precisaremos exportar essas constantes/components, 
+    para que possamos utilizar em outros arquivos. 
+
+    -> export const LayoutWrapper = styled.section`
+      display: flex;
+    `
+
+    -> export const LayoutMain = styled.main`
+      width: 100%
+      min-height: 100vh;
+      padding: 0 3.75rem 0 20rem;
+      background: #16202C;
+    `
+
+06) Pronto, agora já temos o nosso arquivo contendo a estilização separada do componente. 
+
+07) Agora dentro do arquivo index.js, ou seja, o componente lógico,
+    iremos apagar a linha que faz a importacão do styled-components, 
+    e iremos importar o arquivo styled.js
+
+    import * as S from './styled'
+
+    Explicando a linha de código acima:
+    estamos importando tudo do arquivo styled.js (*), nomeando como "S"
+
+    Porque estamos fazendo isso?
+    Porque quando formos utilizar esses componente styled, 
+    iremos utilizar-lo da seguinte forma: 
+
+    <S.LayoutWrapper>
+      <GlobalStyles/>
+      <aside>
+        <Profile/>
+      </aside>
+
+      <S.LayoutMain>
+        {children}
+      </S.LayoutMain>
+    </S.LayoutWrapper>
+
+08) Ou seja, os componentes que tiverem o S na frente serão os componentes de estilo, 
+    os que não tiverem o S, serão componentes lógicos. 
+
+09) 

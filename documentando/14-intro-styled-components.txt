@@ -1,0 +1,43 @@
+01) O STYLED COMPONENTS TRABALHA ATRAVES DE UMA METODOLOGIA CHAMADA CSS IN JS. 
+
+    INSTALANDO STYLED COMPONENTS :
+    npm install --save styled-components
+    yarn add styled-components
+
+    PLUGIN PARA CONECTAR O STYLED-COMPOENTS AO GATSBY:
+    yarn add gatsby-plugin-styled-components
+
+02) DECLARANDO OS PLUGINS INSTALADOS:
+
+    SEMPRE QUE UM PLUGIN FOR INSTALADO E O 
+    MESMO NAO VIER POR DEFAULT JUNTO COM O GATSBY, 
+    SERA NECESSARIO DECLARAR-LO NO ARQUIVO GATSBY-CONFIG.JS
+
+      plugins: [
+        `gatsby-plugin-styled-components`,
+        `gatsby-plugin-react-helmet`,
+        {
+          resolve: `gatsby-source-filesystem`,
+          options: {
+            name: `images`,
+            path: `${__dirname}/src/images`,
+          },
+        },
+        `gatsby-transformer-sharp`,
+        `gatsby-plugin-sharp`,
+        {
+          resolve: `gatsby-plugin-manifest`,
+          options: {
+            name: `gatsby-starter-default`,
+            short_name: `starter`,
+            start_url: `/`,
+            background_color: `#663399`,
+            theme_color: `#663399`,
+            display: `minimal-ui`,
+            icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+          },
+        },
+        // this (optional) plugin enables Progressive Web App + Offline functionality
+        // To learn more, visit: https://gatsby.dev/offline
+        // `gatsby-plugin-offline`,
+      ],

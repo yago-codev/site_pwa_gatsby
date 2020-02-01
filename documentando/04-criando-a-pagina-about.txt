@@ -1,0 +1,30 @@
+01) CRIAR O ARQUIVO DENTRO DA PASTA PAGES
+
+    ABOUT.JS
+
+02) DENTRO DO ARQUIVO, 
+    IMPORTE O REACT
+
+    import React from 'react'
+
+03) CRIAR UMA CONSTANTE COM O NOME DA PAGINA 
+
+    const AboutPage = () => {
+
+    }
+
+04) DEFINIR A ESTRUTURA DO JSX DENTRO 
+    DA CONSTANTE.
+
+    const AboutPage = () => {
+      <h1>About Page</h1>
+    }
+
+05) EXPORTAR A PAGINA
+
+    export default AboutPage
+
+06) PRONTO, 
+    A PAGINA FOI CRIADA E JA PODE SER ACESSADA. 
+
+    

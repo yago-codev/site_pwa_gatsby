@@ -1,0 +1,95 @@
+01) Anteriormente havíamos utilizado o StactiQuery para 
+    consumir os dados do GraphQL.
+
+    A seguir utilzaremos outra forma para 
+    buscar os dados do GraphQL utilizando um hook chamado useStaticQuery.
+
+    import { useStaticQuery, graphql } from 'gatsby'
+
+02) Através do componente StaticQuery nós estávamos tratando tanto 
+    da query quanto da renderização. 
+
+    Com o useStaticQuery será diferente, 
+    porque iremos separar tanto a query quanto a renderização em partes diferentes. 
+
+    Como os dados serão tratados antes de serem renderizados, 
+    nosso componente Profile irá 
+    utilizar uma arrow function com chaves,
+    já que precisaremos utilizar um return. 
+
+    const Profile = () => {}
+
+03) A primeira coisa a ser feita é pegar os dados do graphql.
+
+    const Profile = () => {
+      const {
+        site: {
+          siteMetadata: {
+            title,
+            position,
+            description
+          }
+        }
+      } = useStaticQuery()
+    }
+
+    ou seja, utilizamos uma constante desestruturando os dados que
+    desejamos retornar do graphql e jogamos isso pro useStaticQuery(), 
+    que irá retornar esses dados quando quisermos. 
+
+    Agora dentro dos parênteses do useStaticQuery() nós iremos 
+    passar a query que será feita ao graphql.
+
+    const Profile = () => {
+      const {
+        site: {
+          siteMetadata: {
+            title,
+            position,
+            description
+          }
+        }
+      } = useStaticQuery(graphql`
+        query MyQuery {
+          site {
+            siteMetadata {
+              title
+              position
+              description
+            }
+          }
+        }   
+      `)
+    }
+
+05) Tendo passado a query, 
+    agora nós iremos utilizar o return para renderizar os dados no html. 
+
+    const Profile = () => {
+      const {
+        site: {
+          siteMetadata: {
+            title,
+            position,
+            description
+          }
+        }
+      } = useStaticQuery(graphql`
+        query MyQuery {
+          site {
+            siteMetadata {
+              title
+              position
+              description
+            }
+          }
+        }   
+      `)
+      return (
+        <div className="Profile-wrapper">
+          <h1>{ title }</h1>
+          <h2>{ position }</h2>
+          <p>{ description }</p>
+        </div>
+      )
+    }

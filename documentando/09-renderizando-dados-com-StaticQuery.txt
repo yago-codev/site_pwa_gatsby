@@ -1,0 +1,71 @@
+01) BUSCANDO DADOS / RENDERIZANDO DADOS COM STATICQUERY:
+
+    Dentro do componente Profile, 
+    iremos renderizar os dados do GraphQL através de um módulo 
+    chamado StaticQuery.
+
+    import { StaticQuery, graphql } from 'gatsby'
+
+02) COMO USAR O MODULO PARA CONSUMIR/RENDERIZAR OS DADOS:
+
+    Utilizaremos o StaticQuery como um "componente". 
+    Esse componente StaticQuery irá receber uma propriedade chamada query, 
+    e dentro dessa propriedade nós usaremos o graphql, 
+    seguidos pela query que iremos realizar. 
+
+    Após o parâmetro query, 
+    iremos utilizar um segundo parâmetro chamado render, 
+    que será o responsável por renderizar os dados dentro da 
+    estrutura HTML.
+
+      <StaticQuery
+        query={ graphql`
+          query MyQuery {
+            site {
+              siteMetadata {
+                author
+                title
+                description
+              }
+            }
+          } 
+        `}
+        render={ data => (
+          <div className="Profile-wrapper">
+            <h1>Yago Milano</h1>
+            <h2>Desenvolvedor Front End</h2>
+            <p>Membro do Squad1 de desenvolvido da Vnda, escrevo sobre o mundo front end, viagens, vida pessoal e mais.</p>
+          </div>
+        )}
+      >
+
+03) SUBSTITUINDO OS VALORES ESTATICOS PELOS VALORES RETORNADOS ATRAVES DA QUERY:
+
+    <h1>{ data.site.siteMetadata.author }</h1>
+    <h2>{ data.site.siteMetadata.title }</h2>
+    <p>{ data.site.siteMetadata.description }</p>
+
+04) CRIANDO NOVAS CHAVES PARA O OBJETO DO GATSBY-CONFIG.JS:
+
+    No arquivo gatsby-config.js nós iremos
+    inserir um novo campo chamado position, 
+    onde vamos colocar a valor frontend developer.
+
+    Para podermos puxar esses dados do graphql, 
+    teremos de interromper o servidor que esta rodando e 
+    rodar-lo novamente, pois ele não fica assistindo as alterações realizadas
+    no arquivo gatsby-config.js por default.
+
+05) REFATORANDO O CODIGO:
+
+    Podemos usar a desestruturação para pegar os 
+    dados diretamente, poupando-nos de digitar o 
+    data.site.siteMetadata várias vezes...
+
+    render={({ site: { siteMetadata: { title, position, description }}}) => (
+      <div className="Profile-wrapper">
+        <h1>{ title }</h1>
+        <h2>{ position }</h2>
+        <p>{ description }</p>
+      </div>
+    )}

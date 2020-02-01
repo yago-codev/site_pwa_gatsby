@@ -1,0 +1,29 @@
+01) FAZENDO LINK ENTRE AS PAGINAS COM GATSBY:
+
+    NO ARQUIVO INDEX.JS DENTRO DA PASTA PAGES, 
+    IREMOS IMPORTAR O COMPONENTE LINK
+
+    import { link } from 'gatsby'
+
+02) AGORA IREMOS CRIAR O COMPONENTE LINK 
+    E APONTAR-LO PARA A PAGINA ABOUT:
+
+    const IndexPage = () => (
+      <Layout>
+        <SEO title="Home" />
+        <h1>Home</h1>
+        <ul>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+        </ul>
+      </Layout>
+    )
+
+03) ESTILIZANDO LINKS ATIVOS:
+
+    <Link to="/about" activeStyle={{ color: '#6c5ce7' }}>About</Link>
+
+04) LINK DA DOCUMENTAÇAO:
+
+    https://www.gatsbyjs.org/docs/gatsby-link/

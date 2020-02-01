@@ -1,0 +1,141 @@
+01) IMPORTANDO GATSBY-IMAGE
+
+    import { useStaticQuery, graphql } from 'gatsby'
+    import Img from 'gatsby-image'
+
+02) A IMAGEM DE AVATAR SERA UM COMPONENTE SEPARADO:
+
+    Como será um componente separado, 
+    iremos criar uma pasta chamada Avatar dentro da pasta components.
+
+03) Dentro do componente Avatar, 
+    iremos declarar uma constante desestruturando o avatarImage
+    que estará contido na query do useStaticQuery
+
+    O avatarImage será o nome que daremos a query
+
+    const Avatar = () => {
+      const { avatarImage } = useStaticQuery()
+    }
+
+04) Dentro do useStaticQuery() iremos realizar a query ao graphql para pegar a imagem.
+
+    const Avatar = () => {
+      const { avatarImage } = useStaticQuery(
+        graphql`
+          query {
+            avatarImage:
+          }
+        `
+      )
+    }
+
+05) Dentro do avatarImage(nome da query), nós iremos chamar o arquivo da imagem. 
+    Isso será feito através da função file(),
+    passando a pasta do arquivo.
+
+    Dentro de relativePath,
+    ou seja, na pasta/caminho relativo do arquivo, 
+    iremos acessar um objeto, 
+    pegando o 'eq', ou seja, o equals(igual), 
+    seguido pelo nome do arquivo. 
+
+    const Avatar = () => {
+      const { avatarImage } = useStaticQuery(
+        graphql`
+          query {
+            avatarImage: file(relativePath: { eq: 'avatar.png' })
+          }
+        `
+      )
+    }
+
+06) Logo após declararmos o caminho do arquivo,
+    iremos declarar um objeto, 
+    acessando a chave childImageSharp
+
+    dentro do childImageSharp nós iremos dizer se 
+    o elemento será fixed ou fluid. 
+    Utilizaremos o fixed agora,
+    passando as dimensões desejadas para a imagem.
+
+    const Avatar = () => {
+      const { avatarImage } = useStaticQuery(
+        graphql`
+          query {
+            avatarImage: file(relativePath: { eq: 'avatar.png' }) {
+              childImageSharp {
+                fixed( width: 60, height: 60 )
+              }
+            }
+          }
+        `
+      )
+    }
+
+07) Logo após o fixed também teremos outro objeto, 
+    onde vamos passar utilizar os plugins para tratamento/carregamento das imagens.
+
+    A seguir utilizaremos o GatsbyImageSharpFixed
+
+    const Avatar = () => {
+      const { avatarImage } = useStaticQuery(
+        graphql`
+          query {
+            avatarImage: file(relativePath: { eq: 'avatar.png' }) {
+              childImageSharp {
+                fixed( width: 60, height: 60 ) {
+                  ...GatsbyImageSharpFixed
+
+                }
+              }
+            }
+          }
+        `
+      )
+    }
+
+08) A query para imagem já está pronta, 
+    agora basta renderizar o html dentro do return 
+
+    const Avatar = () => {
+      const { avatarImage } = useStaticQuery(
+        graphql`
+          query {
+            avatarImage: file(relativePath: { eq: 'avatar.png' }) {
+              childImageSharp {
+                fixed( width: 60, height: 60 ) {
+                  ...GatsbyImageSharpFixed
+
+                }
+              }
+            }
+          }
+        `
+      )
+      return <Img fixed={avatarImage.childImageSharp.fixed} />
+    }
+
+09) Agora iremos chamar esse componente avatar dentro do componente Profile.
+
+    import Avatar from 'avatar'
+
+    Tendo feito isso,
+    basta incluir o compoennte dentro da div com classe Profile-wrapper
+
+    <div className="Profile-wrapper">
+      <Avatar/>
+      <h1>{ title }</h1>
+      <h2>{ position }</h2>
+      <p>{ description }</p>
+    </div>
+
+10) Agora novamente, 
+    iremos rodar o gatsby-develop, 
+    fazendo com que a compilação do gatsby seja feita, 
+    além de gerar as miniaturas da imagem que está sendo carregada. 
+
+    Essas miniaturas ficam em 'public/static'
+
+11) 
+
